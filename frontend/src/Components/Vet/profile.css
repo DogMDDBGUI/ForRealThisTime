@@ -1,0 +1,44 @@
+.content {
+    min-height: 25em;
+    padding: 2em 3em;
+    margin: 0;
+}
+
+.title {
+    border-bottom: 0.08em solid #ccc;
+    display: flex;
+}
+
+.sidebar {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 200px;
+    flex: 0 0 200px;
+    padding-left: 1em;
+}
+
+.info {
+    display: flex;
+}
+
+.spacer {
+    display: inline-block;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 1px;
+    flex: 1 1 1px;
+}
+
+.description {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1;
+    flex: 1 1;
+    word-wrap: break-word;
+}
+
+@media not all and (min-width: 600px) {
+    .title {
+        display: block;
+    }
+    .info {
+        display: block;
+    }
+}
