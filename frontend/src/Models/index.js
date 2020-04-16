@@ -1,1 +1,1 @@
-export * from './vet'
+export * from './vet';

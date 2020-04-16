@@ -1,7 +1,7 @@
-import React from 'react'
-import { NavBar } from '../HomePage'
-import { Vet } from '../../Models'
-import './profile.css'
+import React from 'react';
+import { NavBar } from '../HomePage';
+import { Vet } from '../../Models';
+import './profile.css';
 
 
 export class VetProfile extends React.Component {
