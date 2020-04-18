@@ -1,0 +1,32 @@
+#content {
+    margin: 1em;
+}
+
+.dataTable thead:hover {
+    cursor: pointer;
+}
+
+.sorting:after {
+    margin-left: 1em;
+    font-family: "Font Awesome 5 Free";
+    content: "\f0dc";
+}
+
+.sorting_asc:after {
+    margin-left: 1em;
+    font-family: "Font Awesome 5 Free";
+    content: "\f0de";
+}
+.sorting_desc:after {
+    margin-left: 1em;
+    font-family: "Font Awesome 5 Free";
+    content: "\f0dd";
+}
+
+td>.btn {
+    width: 60%;
+}
+
+.dataTables_filter {
+    float: right;
+}
