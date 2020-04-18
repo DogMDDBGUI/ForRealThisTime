@@ -20,6 +20,7 @@ app.use(cors());
 // Import routes and pass express app object to register them
 var routes = require('./App/routes/appRoutes');
 routes(app);
+
 /*
 const express = require('express');
 const bodyParser = require('body-parser');
