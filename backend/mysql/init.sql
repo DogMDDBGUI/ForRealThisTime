@@ -7,7 +7,8 @@ CREATE TABLE `users` (
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `role_id` int,
-  `imageURL` varchar(50),
+  `zipcode` int,
+  `imageURL` varchar(200),
   PRIMARY KEY (`id`)
 );
 
@@ -31,7 +32,7 @@ CREATE TABLE `dog` (
   `age` int,
   `gender` varchar(50),
   `conditions` varchar(400),
-  `imageURL` varchar(50),
+  `imageURL` varchar(200),
   PRIMARY KEY (`id`)
 );
 
@@ -71,16 +72,6 @@ CREATE TABLE `appointment` (
   `status` varchar(100) NOT NULL,
   `vet_id` int NOT NULL,
 );
-
-
-DROP TABLE IF EXISTS `area`;
-
-CREATE TABLE `area` (
-  `id` int NOT NULL,
-  `zipcode` int NOT NULL,
-   `name` varchar(50) 
-);
-
 
 
 /*
