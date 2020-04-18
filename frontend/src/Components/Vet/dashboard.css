@@ -24,7 +24,7 @@
 }
 
 td>.btn {
-    width: 60%;
+    min-width: 60%;
 }
 
 .dataTables_filter {

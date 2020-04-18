@@ -27,9 +27,15 @@ export class NavBar extends React.Component {
                 </li>
                 <li className="nav-item">
                     <NavLink className="nav-link" to="/vets" activeClassName="active">
-                      Vet Table
+                      Vet Dashboard
                     </NavLink>
                 </li>
+                <li className="nav-item">
+                    <NavLink className="nav-link" to="/appointments" activeClassName="active">
+                      View Appointments
+                    </NavLink>
+                </li>
+
                 <li className="nav-item">
                     <NavLink className="nav-link" exact to="/" activeClassName="active">
                       Logout

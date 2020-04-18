@@ -47,10 +47,10 @@ export class VetProfile extends React.Component {
                    />
 
               <button type="button" className="btn btn-info btn-block mt-2">
-                Change profile
+                Edit profile
               </button>
               <button type="button" className="btn btn-success btn-block mt-2">
-                Appointments
+                Book Appointments
               </button>
             </div>
             <div className="description">
@@ -66,6 +66,10 @@ export class VetProfile extends React.Component {
                 <tr>
                   <th>Email Contact</th>
                   <td>{this.state.vet.email}</td>
+                </tr>
+                <tr>
+                  <th>Skills</th>
+                  <td>{this.state.vet.skills.join(', ')}</td>
                 </tr>
               </table>
             </div>

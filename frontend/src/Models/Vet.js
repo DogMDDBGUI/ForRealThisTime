@@ -1,5 +1,5 @@
 export class Vet {
-  constructor(id, firstName, lastName, email, yearExp, areaId, ratings) {
+  constructor(id, firstName, lastName, email, yearExp, areaId, ratings, skills) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -7,5 +7,6 @@ export class Vet {
     this.yearExp = yearExp;
     this.areaId = areaId;
     this.ratings = ratings;
+    this.skills = skills;
   }
 }
