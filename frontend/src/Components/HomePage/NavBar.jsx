@@ -11,21 +11,30 @@ export class NavBar extends React.Component {
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-items" aria-controls="navbar-items" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <Link to="/" className="navbar-brand mr-0 mr-md-2">
           <img src={process.env.PUBLIC_URL + '/dog2.png'} width="30" height="30" className="d-inline-block align-top" alt=""/>
           Dog MD
         </Link>
         <div className="collapse navbar-collapse" id="navbar-items">
           <ul className="navbar-nav">
-            {
-              this.menu.map(item => (
+            
+              
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/" activeClassName="active">
-                    {item}
+                  <NavLink className="nav-link" to="/usr/profile/:id" activeClassName="active">
+                    {this.menu[0]}
                   </NavLink>
                 </li>
-              ))
-            }
+                <li className="nav-item">
+                    <NavLink className="nav-link" to="/vet/profile/:id" activeClassName="active">
+                      {this.menu[1]}
+                    </NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink className="nav-link" to="/" activeClassName="active">
+                      {this.menu[2]}
+                    </NavLink>
+                </li>            
           </ul>          
         </div>
       </nav>

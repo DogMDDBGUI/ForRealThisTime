@@ -1,10 +1,18 @@
 import React from "react";
-
+import { Link, NavLink } from 'react-router-dom'
+import { User } from '../../Models'
 
 export class Register extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            newProfile : User,
+            checked: false
+        };
+
     }
+    handleCheckboxChange = event =>
+    this.setState({ checked: event.target.checked })
 
     render(){
         return(
@@ -13,8 +21,17 @@ export class Register extends React.Component{
                 <div className = "content">
                     <div className="form">
                         <div className = "form-group">
-                            <label htmlFor="username">Username</label>
-                            <input type = "text" name = "username" placeholder = "Username..."/>
+                            <label htmlFor="Firstname">First Name</label>
+                            <input type = "text" name = "Firstname" placeholder = "Firstname..."/>
+
+                            <label htmlFor="Lastname">Last Name</label>
+                            <input type = "text" name = "Lastname" placeholder = "Lastname..."/>
+
+                            <label htmlFor ="Vet">Are you a veteranarian?</label>
+                            <input type="checkbox"/>
+
+                            <label htmlFor="Area Code">Area Code</label>
+                            <input type = "Area Code" name = "Area Code" placeholder = "Area Code..."/>
 
                             <label htmlFor="email">E-Mail</label>
                             <input type = "text" name = "useremailname" placeholder = "email..."/>
@@ -27,10 +44,9 @@ export class Register extends React.Component{
                     </div>
                 </div>
                 <div className="footer">
-                    <button type="button" className="btn-primary"onClick={this.props.action}>
-                        Register
-                        
-                    </button>
+                <Link to="/home" className="btn-primary btn-lg" >
+                        Register  
+                </Link>
                 </div>
             </div>
         )}
