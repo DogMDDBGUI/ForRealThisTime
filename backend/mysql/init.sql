@@ -59,6 +59,7 @@ CREATE TABLE `veterinarian` (
   `user_id` int NOT NULL,
   `years_experience` int,
   `area_id` int,
+  `skills` varchar(400),
  `ratings` double
 );
 
