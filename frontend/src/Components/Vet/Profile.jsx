@@ -12,7 +12,8 @@ export class VetProfile extends React.Component {
     'lephuocdinh99@gmail.com',
     3,
     1,
-    4.5
+    4.5,
+    ['Patience', 'Helpful'],
   )  
 
   fullName() {
@@ -48,8 +49,8 @@ export class VetProfile extends React.Component {
               <button type="button" className="btn btn-info btn-block mt-2">
                 Change profile
               </button>
-              <button className="btn btn-block btn-success mt-2">
-                Book Appointment
+              <button type="button" className="btn btn-success btn-block mt-2">
+                Appointments
               </button>
             </div>
             <div className="description">
