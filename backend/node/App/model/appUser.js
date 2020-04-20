@@ -45,7 +45,8 @@ User.loginUser = function(login_user, result){
             "first_name":res[0].first_name,
             "last_name":res[0].last_name,
             "password":res[0].password,
-            "role_id":res[0].role_id
+            "role_id":res[0].role_id,
+            "zipcode":res[0].zipcode
             });
         }
         //if passwords are different
