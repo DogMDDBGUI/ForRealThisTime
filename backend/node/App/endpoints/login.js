@@ -34,7 +34,7 @@ router.post('/register', (req, res) => { // receive event data from the frontend
                         VALUES ('${newUser.email}', '${newUser.password}', '${newUser.first_name}', '${newUser.last_name}', '${newUser.role_id}', '${newUser.imageURL}');`,
         (err, rows, fields) => {
             if (err) throw err
-            res.end(JSON.stringify({"code": "200", "msg": "Register Successfully"}));
+            res.json({"code": "200", "msg": "Register Successfully"});
         }
     );
 }) 
