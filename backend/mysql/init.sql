@@ -74,6 +74,7 @@ CREATE TABLE `appointment` (
   `vet_id` int NOT NULL,
 );
 
+/*ALTER USER 'root'@'localhost' IDENTIFIED BY ''; */
 
 /*
 -- create table in DB
