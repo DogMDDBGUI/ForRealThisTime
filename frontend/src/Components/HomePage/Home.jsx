@@ -4,7 +4,10 @@ import{ NavBar } from "./NavBar"
 export class Home extends React.Component {
   render() {
     return (
-      <NavBar/>
+      <>
+        <NavBar/>
+        <h3>Hi</h3>
+      </>
     );
   }
 }

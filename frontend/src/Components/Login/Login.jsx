@@ -1,7 +1,10 @@
 import React from "react";
 import { Link, NavLink } from 'react-router-dom'
+import { ProductRepository } from '../../Api/productRepository'
 
-export class Login extends React.Component{
+export class Login extends React.Component {
+    api = new ProductRepository();
+
     constructor(props){
         super(props);
         this.state = {
@@ -9,6 +12,13 @@ export class Login extends React.Component{
             password : ""
         };
     }
+
+    loginSubmit() {
+        this.api.login().then(
+            data => console.log(data)
+        )
+    }
+
     
     render(){
         return (
@@ -34,9 +44,12 @@ export class Login extends React.Component{
                     </div>
                 </div>
                 <div className="footer">
-                    <Link to="/home" className="btn-primary btn-lg" >
+                    <button type="button" 
+                            className="btn btn-primary btn-lg"
+                            onClick={() => this.loginSubmit()}
+                            >
                         Login
-                    </Link>
+                    </button>
                 </div>
             </div>
         )}

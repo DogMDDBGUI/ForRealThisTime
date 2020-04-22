@@ -17,7 +17,7 @@ export class VetProfile extends React.Component {
   )  
 
   fullName() {
-    return this.state.vet.firstName + " " + this.state.vet.lastName;
+    return this.state.vet.first_name + " " + this.state.vet.last_name;
   }
 
   state = {
@@ -57,11 +57,11 @@ export class VetProfile extends React.Component {
               <table className="table table-collapse">
                 <tr>
                   <th>From </th>
-                  <td>{this.state.vet.areaId}</td>
+                  <td>{this.state.vet.zipcode}</td>
                 </tr>
                 <tr>
                   <th>Years of Experience </th>
-                  <td>{this.state.vet.yearExp} year(s)</td>
+                  <td>{this.state.vet.year_exp} year(s)</td>
                 </tr>
                 <tr>
                   <th>Email Contact</th>

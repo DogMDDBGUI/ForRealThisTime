@@ -21,6 +21,12 @@ app.use(cors());
 var routes = require('./App/routes/appRoutes');
 routes(app);
 
+//GET /
+app.get('/', (req, res) => {
+  res.status(200).send('Go to 0.0.0.0:3000.');
+});
+
+
 /*
 const express = require('express');
 const bodyParser = require('body-parser');
