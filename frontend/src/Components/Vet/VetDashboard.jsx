@@ -57,7 +57,7 @@ export class VetDashboard extends React.Component {
           sort: 'asc',
         },
         {
-          label: 'Experience',
+          label: 'Exp. Year',
           field: 'yearExp',
           sort: 'asc',
         },
@@ -95,12 +95,11 @@ export class VetDashboard extends React.Component {
   createRows() {
     this.state.vets.map(vet => {
       let linkTo = '/vet/profile/' + vet.id;
-      let exp = `${vet.yearExp} year(s)`;
       let row = {
-        firstName: vet.firstName,
-        lastName: vet.lastName,
-        yearExp: exp,
-        areaId: vet.areaId,
+        firstName: vet.first_name,
+        lastName: vet.last_name,
+        yearExp: vet.year_exp,
+        areaId: vet.zipcode,
         ratings: vet.ratings,
         profile: <Link className='btn btn-info btn-sm' 
                        to={linkTo}> 

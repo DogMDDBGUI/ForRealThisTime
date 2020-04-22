@@ -21,34 +21,11 @@ export class LoginPage extends React.Component {
   }
 
   handleSubmit(e){
-    e.preventDefault();
-    let prod = this.state.number * this.state.number;
-    axios.post('http://localhost:8000/multplynumber', {product: prod}).then(res => {
-      console.log(res);
-      this.fetchVals();
-    });
-    this.setState({number: ""});
-  }
-
-  initSetup = () => {
-    axios.post('http://localhost:8000/setupdb').then(res => {
-      console.log(res);
-      this.fetchVals();
-    });
   }
 
   componentDidMount(){
-    this.fetchVals();
   }
 
-  fetchVals = () => {
-    axios.get('http://localhost:8000/values').then(
-      res => {
-        const values = res.data;
-        console.log(values.data);
-        this.setState({ values: values.data });
-    });
-  }
   changeState() {
     const { isLogginActive } = this.state;
       this.rightSide.classList.toggle("right");
