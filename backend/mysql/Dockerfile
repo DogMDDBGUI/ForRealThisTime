@@ -10,8 +10,8 @@
 FROM mysql:8
 
 # Establish MySQL DB as environment variable
-ENV MYSQL_DATABASE=db
-ENV MYSQL_RANDOM_ROOT_PASSWORD=1
+ENV MYSQL_DATABASE=dogmd
+ENV MYSQL_RANDOM_ROOT_PASSWORD=password
 
 # Copy in first run SQL scripts
 COPY ./init.sql /docker-entrypoint-initdb.d/
