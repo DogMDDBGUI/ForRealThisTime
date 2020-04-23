@@ -4,18 +4,23 @@ const router = express.Router() // express route handler
 
 // login
 router.post('/', (req, res) => {
+    let user = req.body;
+
     connection.query(
-        `SELECT * FROM veterinarian;`, 
+        `SELECT * FROM users WHERE email='${user.email}'
+                             AND password='${user.password}';`, 
         (err, rows, fields)=>{
         if(err) throw err
-        res.end(JSON.stringify(rows))
+        if (rows.length == 0) {
+            res.json({code: 204, msg: "Invalid login"});
+        }
+        res.end(JSON.stringify(rows[0]))
     })
 })
 
 
 router.post('/register', (req, res) => { // receive event data from the frontend
     let newUser = req.body;
-    console.log(newUser);
     if (!newUser.email || 
         !newUser.password || 
         !newUser.first_name || 
@@ -30,8 +35,8 @@ router.post('/register', (req, res) => { // receive event data from the frontend
     }
 
     connection.query(
-        `INSERT INTO users (email, password, first_name, last_name, role_id, imageURL)\
-                        VALUES ('${newUser.email}', '${newUser.password}', '${newUser.first_name}', '${newUser.last_name}', '${newUser.role_id}', '${newUser.imageURL}');`,
+        `INSERT INTO users (email, password, first_name, last_name, role_id, imageURL, zipcode)\
+                        VALUES ('${newUser.email}', '${newUser.password}', '${newUser.first_name}', '${newUser.last_name}', '${newUser.role_id}', '${newUser.imageURL}', '${newUser.zipcode}');`,
         (err, rows, fields) => {
             if (err) throw err
             res.json({"code": "200", "msg": "Register Successfully"});

@@ -5,30 +5,17 @@ import './profile.css';
 
 
 export class VetProfile extends React.Component {
-  sampleVet = new Vet(
-    1,
-    'Phuoc Dinh',
-    'Le',
-    'lephuocdinh99@gmail.com',
-    3,
-    1,
-    4.5,
-    ['Patience', 'Helpful'],
-  )  
 
   fullName() {
-    return this.state.vet.first_name + " " + this.state.vet.last_name;
+    return this.props.user.first_name + " " + this.props.user.last_name;
   }
 
-  state = {
-    vet: this.sampleVet, 
-  };
+  state = {};
 
   render() {
     return (
       <>
-        <NavBar />
-
+        <NavBar/>
         <div className="content">
           <div className="title mb-3">
             <h3>
@@ -36,12 +23,12 @@ export class VetProfile extends React.Component {
             </h3>
             <span className="spacer"></span>
             <h3>
-              Rating: {this.state.vet.ratings}
+              Rating: {this.props.user.ratings}
             </h3>
           </div>
           <div className="info">
             <div className="sidebar mr-5 mb-3">
-              <img src="https://via.placeholder.com/200" 
+              <img src={this.props.user.imageURL}
                    alt="Profile Pic"
                    width="200"
                    />
@@ -57,19 +44,19 @@ export class VetProfile extends React.Component {
               <table className="table table-collapse">
                 <tr>
                   <th>From </th>
-                  <td>{this.state.vet.zipcode}</td>
+                  <td>{this.props.user.zipcode}</td>
                 </tr>
                 <tr>
                   <th>Years of Experience </th>
-                  <td>{this.state.vet.year_exp} year(s)</td>
+                  <td>{this.props.user.year_experience} year(s)</td>
                 </tr>
                 <tr>
                   <th>Email Contact</th>
-                  <td>{this.state.vet.email}</td>
+                  <td>{this.props.user.email}</td>
                 </tr>
                 <tr>
                   <th>Skills</th>
-                  <td>{this.state.vet.skills.join(', ')}</td>
+                  <td>{this.props.user.skills}</td>
                 </tr>
               </table>
             </div>
@@ -78,6 +65,4 @@ export class VetProfile extends React.Component {
       </>
     );
   }
-
-
 }

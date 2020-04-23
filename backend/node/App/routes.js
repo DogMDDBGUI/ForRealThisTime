@@ -1,4 +1,6 @@
 module.exports = function(app) {
     const loginRoute = require('./endpoints/login');
-    app.use('/api/login', loginRoute);   
+    const userRoute = require('./endpoints/users');
+    app.use('/api/login', loginRoute);
+    app.use('/api/users', userRoute); 
 }
