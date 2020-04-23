@@ -22,7 +22,7 @@ router.post('/dogs', (req, res) => { // receive event data from the frontend
     }
 
     connection.query(
-        `INSERT INTO users (id, breed_id, owner_id, name, age, gender, conditions, imageURL)\
+        `INSERT INTO dog (id, breed_id, owner_id, name, age, gender, conditions, imageURL)\
                         VALUES ('${newDog.id}', '${newDog.breed_id}', '${newDog.owner_id}', '${newDog.name}', '${newDog.age}', 
                                 '${newDog.gender}', '${newDog.conditions}', '${newDog.imageURL}');`,
         (err, rows, fields) => {
