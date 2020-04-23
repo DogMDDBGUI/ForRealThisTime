@@ -3,7 +3,17 @@ const express = require('express')
 const router = express.Router() // express route handler 
 
 // login
+// router.post('/', (req, res) => {
+//     connection.query(
+//         `SELECT * FROM veterinarian;`, 
+//         (err, rows, fields)=>{
+//         if(err) throw err
+//         res.end(JSON.stringify(rows))
+//     })
+// })
+
 router.post('/', (req, res) => {
+
     let user = req.body;
 
     connection.query(
