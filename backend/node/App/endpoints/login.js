@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
         if(err) {
             result({"code":400,"response":"Fatal SQL error ocurred"}, null);
         }
-        else {
+        else if(user.email == res[0].email) {
             //if email is found
             if(res.length > 0) { //What is res supposed to be?
                 //if passwords match
