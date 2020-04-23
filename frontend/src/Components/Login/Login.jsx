@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, Redirect } from 'react-router-dom'
 import { ProductRepository } from '../../Api/productRepository'
 
 export class Login extends React.Component {
@@ -9,18 +9,34 @@ export class Login extends React.Component {
         super(props);
         this.state = {
             username : "",
-            password : ""
+            password : "",
         };
     }
 
     loginSubmit() {
-        this.api.login().then(
-            data => console.log(data)
+        if (this.state.email === "" || this.state.password === "") {
+            alert("Please enter all fields");
+            return;
+        }
+        this.api.login(this.state).then(
+            data => {
+                if (data.code === 204) {
+                    alert(data.msg);
+                }
+                else {
+                    localStorage.setItem('id', data.id);
+                    localStorage.setItem('role_id', data.role_id);
+                    this.setState({redirect: true});
+                }
+            }
         )
     }
 
     
     render(){
+        if (localStorage.getItem('id')) {
+            return <Redirect to='/home' />
+        }
         return (
             <div className="base-container" ref={this.props.containerRef}>
                 <div className = "header">Login</div>
@@ -29,15 +45,17 @@ export class Login extends React.Component {
                         <div className = "form-group">
 
                             <label htmlFor="email">Email</label>
-                            <input type = "text"
-                             name = "email" 
-                             placeholder = "email..."
+                            <input  type = "text"
+                                    id = "email" 
+                                    placeholder = "email..."
+                                    onChange={e => this.setState({email: e.target.value})}
                              />
 
                             <label htmlFor="password">Password</label>
                             <input type = "password" 
-                            name = "password" 
-                            placeholder = "Password..."
+                                   id = "password" 
+                                   placeholder = "Password..."
+                                   onChange={e => this.setState({password: e.target.value})}
                             />
 
                         </div>

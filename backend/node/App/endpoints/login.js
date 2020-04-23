@@ -13,47 +13,24 @@ const router = express.Router() // express route handler
 // })
 
 router.post('/', (req, res) => {
-    let user = req.body
-    var query = `SELECT * FROM users WHERE email = ?;`
-    
-    connection.query(query, [user.email], function(err, res) {
-        if(err) {
-            result({"code":400,"response":"Fatal SQL error ocurred"}, null);
+
+    let user = req.body;
+
+    connection.query(
+        `SELECT * FROM users WHERE email='${user.email}'
+                             AND password='${user.password}';`, 
+        (err, rows, fields)=>{
+        if(err) throw err
+        if (rows.length == 0) {
+            res.json({code: 204, msg: "Invalid login"});
         }
-        else if(user.email == res[0].email) {
-            //if email is found
-            if(res.length > 0) { //What is res supposed to be?
-                //if passwords match
-                if(res[0].password == login_user.password){
-                    result(null,{
-                    "code":200,
-                      "response":"Login was sucessfull.",
-                      "id":res[0].id,
-                      "email":res[0].email,
-                      "first_name":res[0].first_name,
-                      "last_name":res[0].last_name,
-                      "password":res[0].password,
-                      "role_id":res[0].role_id,
-                      "zipcode":res[0].zipcode
-                    });
-          }
-          //if passwords are different
-          else{
-            result({"code":204,"response":"Email and/or password do not match."},null);
-          }
-        }
-        //if no email id found
-        else{
-          result({"code":204,"response":"Email does not exist."},null)
-            }
-        }
-    }
+        res.end(JSON.stringify(rows[0]))
+    })
 })
 
 
 router.post('/register', (req, res) => { // receive event data from the frontend
     let newUser = req.body;
-    console.log(newUser);
     if (!newUser.email || 
         !newUser.password || 
         !newUser.first_name || 
@@ -68,8 +45,8 @@ router.post('/register', (req, res) => { // receive event data from the frontend
     }
 
     connection.query(
-        `INSERT INTO users (email, password, first_name, last_name, role_id, imageURL)\
-                        VALUES ('${newUser.email}', '${newUser.password}', '${newUser.first_name}', '${newUser.last_name}', '${newUser.role_id}', '${newUser.imageURL}');`,
+        `INSERT INTO users (email, password, first_name, last_name, role_id, imageURL, zipcode)\
+                        VALUES ('${newUser.email}', '${newUser.password}', '${newUser.first_name}', '${newUser.last_name}', '${newUser.role_id}', '${newUser.imageURL}', '${newUser.zipcode}');`,
         (err, rows, fields) => {
             if (err) throw err
             res.json({"code": "200", "msg": "Register Successfully"});

@@ -2,6 +2,10 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 export class NavBar extends React.Component {
+  logOut() {
+    localStorage.removeItem('id');
+    localStorage.removeItem('role_id');
+  }
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -16,7 +20,7 @@ export class NavBar extends React.Component {
         <div className="collapse navbar-collapse" id="navbar-items">
           <ul className="navbar-nav">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/usr/profile/:id" activeClassName="active">
+                  <NavLink className="nav-link" to="/myprofile" activeClassName="active">
                     My Profile
                   </NavLink>
                 </li>
@@ -37,7 +41,7 @@ export class NavBar extends React.Component {
                 </li>
 
                 <li className="nav-item">
-                    <NavLink className="nav-link" exact to="/" activeClassName="active">
+                    <NavLink className="nav-link" exact to="/" activeClassName="active" onClick={this.logOut}>
                       Logout
                     </NavLink>
                 </li>   
