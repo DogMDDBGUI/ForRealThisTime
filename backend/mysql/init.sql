@@ -60,7 +60,7 @@ CREATE TABLE `veterinarian` (
   `years_experience` int,
   `area_id` int,
   `skills` varchar(400),
- `ratings` double
+  `ratings` double
 );
 
 DROP TABLE IF EXISTS `appointment`;
@@ -71,7 +71,7 @@ CREATE TABLE `appointment` (
   date date NOT NULL,
   `dog_id` int NOT NULL,
   `status` varchar(100) NOT NULL,
-  `vet_id` int NOT NULL,
+  `vet_id` int NOT NULL
 );
 
 /*ALTER USER 'root'@'localhost' IDENTIFIED BY ''; */

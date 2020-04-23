@@ -3,9 +3,9 @@ const express = require('express')
 const router = express.Router() // express route handler 
 
 // login
-router.get('/', (req, res) => {
-    connection.query(`
-        SELECT * FROM veterinarian;`, 
+router.post('/', (req, res) => {
+    connection.query(
+        `SELECT * FROM veterinarian;`, 
         (err, rows, fields)=>{
         if(err) throw err
         res.end(JSON.stringify(rows))
