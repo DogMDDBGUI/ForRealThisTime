@@ -17,14 +17,14 @@ app.use(cors());
 app.listen(PORT, () => console.log(`backend running on http://localhost:${PORT}`)) 
 
 // Import routes and pass express app object to register them
-var routes = require('./App/routes/appRoutes');
+var routes = require('./App/routes');
 routes(app);
 
 
 // GET /
-app.get('/', (req, res) => {
-  res.status(200).send('Go to localhost:3000.');
-});
+// app.get('/', (req, res) => {
+//   res.status(200).send('Go to localhost:3000.');
+// });
 
 
 /*

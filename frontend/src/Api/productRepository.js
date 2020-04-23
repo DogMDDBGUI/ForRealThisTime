@@ -17,4 +17,16 @@ export class ProductRepository {
           })
     })
   }
+
+
+  register(form) {
+    return new Promise((resolve, reject) => {
+      axios.post(`${this.url}/api/login/register`, form, this.config)
+           .then(x => resolve(x.data))
+           .catch(x => {
+              alert(x);
+              reject(x);
+          })
+    })
+  }
 }

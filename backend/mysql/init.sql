@@ -93,7 +93,7 @@ CREATE TABLE `veterinarian` (
   `years_experience` int,
   `area_id` int,
   `skills` varchar(400),
- `ratings` double
+  `ratings` double
 );
 
 INSERT INTO veterinarian (user_id, years_experience, area_id, skills, ratings) VALUES
@@ -109,7 +109,7 @@ CREATE TABLE `appointment` (
   date date NOT NULL,
   `dog_id` int NOT NULL,
   `status` varchar(100) NOT NULL,
-  `vet_id` int NOT NULL,
+  `vet_id` int NOT NULL
 );
 
 INSERT INTO appointment(id, time, date, dog_id, status, vet_id) VALUES

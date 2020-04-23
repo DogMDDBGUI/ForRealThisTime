@@ -34,7 +34,7 @@ User.loginUser = function(login_user, result){
     }
     else {
       //if email was found
-      if(res.length > 0){
+      if(res.length > 0) {
         //if passwords match
         if(res[0].password == login_user.password){
           result(null,{
