@@ -25,4 +25,21 @@ router.post('/users/dogOwner', (req, res) => { // receive event data from the fr
     );
 }) 
 
+//adding puts
+
+router.put('/users/dogOwner/vet_id:user_id', async (req, res) => {
+
+    let user_id = req.param('user_id');
+    let vet_id = req.param('vet_id');
+
+    connection.query(
+        `UPDATE dogOwner (years_experience)\
+                        SET ('${user_id.vet_id}');`,
+        (err, rows, fields) => {
+            if (err) throw err
+            res.json({"code": "200", "msg": "Register Successfully"});
+        }
+    );
+});
+
 module.exports = router 
