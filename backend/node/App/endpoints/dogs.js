@@ -32,4 +32,53 @@ router.post('/dogs', (req, res) => { // receive event data from the frontend
     );
 }) 
 
+//starting puts
+
+router.put('/dog/imageURL:id', async (req, res) => {
+
+    let id = req.param('id');
+    let imageURL = req.param('imageURL');
+
+    connection.query(
+        `UPDATE dog (imageURL)\
+                        SET ('${id.imageURL}');`,
+        (err, rows, fields) => {
+            if (err) throw err
+            res.json({"code": "200", "msg": "Register Successfully"});
+        }
+    );
+});
+
+
+router.put('/dog/conditions:id', async (req, res) => {
+
+    let id = req.param('id');
+    let conditions = req.param('conditions');
+
+    connection.query(
+        `UPDATE dog (conditions)\
+                        SET ('${id.conditions}');`,
+        (err, rows, fields) => {
+            if (err) throw err
+            res.json({"code": "200", "msg": "Register Successfully"});
+        }
+    );
+});
+
+
+router.put('/dog/age:id', async (req, res) => {
+
+    let id = req.param('age');
+    let age = req.param('age');
+
+    connection.query(
+        `UPDATE dog (age)\
+                        SET ('${id.age}');`,
+        (err, rows, fields) => {
+            if (err) throw err
+            res.json({"code": "200", "msg": "Register Successfully"});
+        }
+    );
+});
+
 module.exports = router 
