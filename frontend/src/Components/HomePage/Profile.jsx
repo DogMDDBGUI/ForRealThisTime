@@ -21,7 +21,7 @@ export class Profile extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     let id = this.props.match.params.id;
     this.api.getUser(id)
         .then(user => {

@@ -62,4 +62,15 @@ export class ProductRepository {
           })
     })
   }
+
+  updateUser(form) {
+    return new Promise((resolve, reject) => {
+      axios.put(`${this.url}/api/users`, form, this.config)
+           .then(x => resolve(x.data))
+           .catch(x => {
+              alert(x);
+              reject(x);
+          })
+    })
+  }
 }

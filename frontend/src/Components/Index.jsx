@@ -1,4 +1,3 @@
-import "./Login/style.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 export{ Login } from "./Login/Login"
 export{ Register } from "./Login/Register"

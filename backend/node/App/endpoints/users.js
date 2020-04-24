@@ -35,4 +35,41 @@ router.get('/email/:email', (req, res) => {
     )
 })
 
+// update user
+router.put('/', (req, res) => {
+    let user = req.body;
+    
+    connection.query(
+        `UPDATE users
+         SET first_name = '${user.first_name}',
+             last_name = '${user.last_name}',
+             zipcode = '${user.zipcode}',
+             imageURL = '${user.imageURL}'
+         WHERE id = '${user.id}'
+        `,
+        (err, rows, fields) => {
+            if (err) throw err
+        }
+    )
+
+    // vet
+    if (user.role_id == 1) {
+        connection.query(
+            `UPDATE veterinarian
+             SET years_experience = '${user.years_experience}',
+                 skills = '${user.skills}',
+                 ratings = '${user.ratings}'
+             WHERE user_id = '${user.id}'
+            `,
+            (err, rows, fields) => {
+                if (err) throw err
+                res.json({"code": "200", "msg": "Update successfully"});
+            }
+        )   
+    }         
+    else {
+        res.json({"code": "200", "msg": "Update successfully"});
+    }
+})
+
 module.exports = router

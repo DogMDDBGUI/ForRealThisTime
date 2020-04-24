@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import style from  './style.css'
+import './style.css'
 import { Login, Register } from './';
 
 export class LoginPage extends React.Component {

@@ -62,7 +62,7 @@ export class VetDashboard extends React.Component {
           sort: 'asc',
         },
         {
-          label: 'Area',
+          label: 'Zipcode',
           field: 'areaId',
           sort: 'asc',
         },
@@ -94,11 +94,11 @@ export class VetDashboard extends React.Component {
 
   createRows() {
     this.state.vets.map(vet => {
-      let linkTo = '/vet/profile/' + vet.id;
+      let linkTo = '/user/' + vet.id;
       let row = {
         firstName: vet.first_name,
         lastName: vet.last_name,
-        yearExp: vet.year_exp,
+        yearExp: vet.years_experience,
         areaId: vet.zipcode,
         ratings: vet.ratings,
         profile: <Link className='btn btn-info btn-sm' 

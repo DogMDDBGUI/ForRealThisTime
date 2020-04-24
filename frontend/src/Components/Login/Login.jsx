@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { ProductRepository } from '../../Api/productRepository'
 
 export class Login extends React.Component {
@@ -41,18 +41,20 @@ export class Login extends React.Component {
             <div className="base-container" ref={this.props.containerRef}>
                 <div className = "header">Login</div>
                 <div className = "content">
-                    <div className="form">
-                        <div className = "form-group">
+                    <div className="form-login">
+                        <div className = "form-group-login">
 
-                            <label htmlFor="email">Email</label>
-                            <input  type = "text"
+                            <label className="label-login"  htmlFor="email">Email</label>
+                            <input  className="input-login"
+                                    type = "text"
                                     id = "email" 
                                     placeholder = "email..."
                                     onChange={e => this.setState({email: e.target.value})}
                              />
 
-                            <label htmlFor="password">Password</label>
-                            <input type = "password" 
+                            <label className="label-login"  htmlFor="password">Password</label>
+                            <input className="input-login"
+                                   type = "password" 
                                    id = "password" 
                                    placeholder = "Password..."
                                    onChange={e => this.setState({password: e.target.value})}

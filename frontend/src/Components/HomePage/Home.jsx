@@ -27,7 +27,6 @@ export class Home extends React.Component {
     this.api.getUser(localStorage.getItem('id'))
         .then(data => {
           this.setState({name: data.first_name});
-          console.log(data);
         })
         .catch(x => alert(x));
   }

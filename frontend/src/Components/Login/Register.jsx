@@ -66,49 +66,49 @@ export class Register extends React.Component{
             <div className="base-container">
                 <div className = "header">Register</div>
                 <div className = "content">
-                    <div className="form">
-                        <div className = "form-group">
-                            <label htmlFor="Firstname">First Name</label>
-                            <input type = "text" 
+                    <div className="form-login">
+                        <div className = "form-group-login">
+                            <label className="label-login" htmlFor="Firstname">First Name</label>
+                            <input className="input-login" type = "text" 
                                    id = "Firstname" 
                                    placeholder = "Firstname..."
                                    onChange = {e => this.setState({first_name: e.target.value})}
                             />
 
-                            <label htmlFor="Lastname">Last Name</label>
-                            <input type = "text" 
+                            <label className="label-login" htmlFor="Lastname">Last Name</label>
+                            <input className="input-login" type = "text" 
                                    id = "Lastname" 
                                    placeholder = "Lastname..."
                                    onChange = {e => this.setState({last_name: e.target.value})}
                             />
 
-                            <label htmlFor="Vet">Are you a veteranarian?</label>
-                            <input type="checkbox" 
+                            <label className="label-login" htmlFor="Vet">Are you a veteranarian?</label>
+                            <input className="input-login" type="checkbox" 
                                    id="Vet"
                                    onChange={this.handleCheckboxChange}/>
 
-                            <label htmlFor="ZipCode">Zip Code</label>
-                            <input  type="text" 
+                            <label className="label-login" htmlFor="ZipCode">Zip Code</label>
+                            <input className="input-login"  type="text" 
                                     id="ZipCode" 
                                     placeholder="ZipCode..."
                                     onChange={e => this.setState({zipcode: e.target.value})}
                             />
 
-                            <label htmlFor="email">Email</label>
-                            <input  type = "email" 
+                            <label className="label-login" htmlFor="email">Email</label>
+                            <input className="input-login"  type = "email" 
                                     id = "email" 
                                     placeholder = "Email..."
                                     onChange={e => this.setState({email: e.target.value})}
                             />
                             
-                            <label htmlFor="password">Password</label>
-                            <input  type="password" 
+                            <label className="label-login" htmlFor="password">Password</label>
+                            <input className="input-login"  type="password" 
                                     id="password" 
                                     placeholder = "Password..."
                                     onChange={e => this.setState({password: e.target.value})}
                             />
-                            <label htmlFor="ConfPassword">Confirm Password</label>
-                            <input  type="password" 
+                            <label className="label-login" htmlFor="ConfPassword">Confirm Password</label>
+                            <input className="input-login"  type="password" 
                                     id="ConfPassword" 
                                     placeholder = "Password..."
                                     onChange={e => this.setState({confirm_password: e.target.value})}

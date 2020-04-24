@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { NavBar } from '../HomePage';
 import { Vet } from '../../Models';
 import './profile.css';
@@ -32,18 +33,22 @@ export class VetProfile extends React.Component {
                    alt="Profile Pic"
                    width="200"
                    />
-
-              <button type="button" className="btn btn-info btn-block mt-2">
-                Edit profile
-              </button>
-              <button type="button" className="btn btn-success btn-block mt-2">
-                Book Appointments
-              </button>
+              {
+              localStorage.getItem('id') == this.props.user.id &&
+                <Link to="/edit" className="btn btn-info btn-block mt-2">
+                  Edit profile
+                </Link>
+              }
+              {localStorage.getItem('role_id') == 2 && 
+                <button type="button" className="btn btn-success btn-block mt-2">
+                  Book Appointments
+                </button>
+              }
             </div>
             <div className="description">
               <table className="table table-collapse">
                 <tr>
-                  <th>From </th>
+                  <th>Zipcode </th>
                   <td>{this.props.user.zipcode}</td>
                 </tr>
                 <tr>
