@@ -39,12 +39,26 @@ export class Register extends React.Component{
                 return;
             }
         }
+
+        this.api.getUserByEmail(this.state.email)
+            .then(data => {
+                console.log(data)
+                if (data.code != 204) {
+                    alert('This email is already used');
+                    return;
+                }
+                this.register();
+                
+            })
+    }
+
+    register() {
         this.api.register(this.state)
-           .then(x => {
-                alert(x.msg);
+            .then(() => {
+                alert('Register successfully');
                 window.location.reload(false);
-           })
-           .catch(e => alert(e))
+            })
+            .catch(x => alert(x));
     }
 
     render() {

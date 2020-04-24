@@ -3,9 +3,9 @@ var mysql = require('mysql');
 
 // Local mysql db connection
 var connection = mysql.createConnection({
-  host: 'dogmd_mysql_comp',
-  user: 'dog',
-  password: 'md',
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
   database: 'dogmd'
 });
 

@@ -13,7 +13,7 @@ export class Profile extends React.Component {
     if (!role_id) {
       return <Redirect to='/' />
     }
-    else if (role_id == 1) {
+    else if (this.state.role_id == 1) {
       return <VetProfile user={this.state}/>
     }
     else {
