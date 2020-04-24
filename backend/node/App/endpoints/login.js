@@ -46,12 +46,25 @@ router.post('/register', (req, res) => { // receive event data from the frontend
 
     connection.query(
         `INSERT INTO users (email, password, first_name, last_name, role_id, imageURL, zipcode)\
-                        VALUES ('${newUser.email}', '${newUser.password}', '${newUser.first_name}', '${newUser.last_name}', '${newUser.role_id}', '${newUser.imageURL}', '${newUser.zipcode}');`,
+            VALUES ('${newUser.email}', '${newUser.password}', '${newUser.first_name}', '${newUser.last_name}', '${newUser.role_id}', '${newUser.imageURL}', '${newUser.zipcode}');\
+         `,
         (err, rows, fields) => {
             if (err) throw err
-            res.json({"code": "200", "msg": "Register Successfully"});
         }
     );
+    if (newUser.role_id == 1) {
+        connection.query(
+            `INSERT INTO veterinarian (user_id, ratings, skills, years_experience)\
+                VALUES (LAST_INSERT_ID(), '5', 'To Be Changed', '0');`,
+            (err, rows, fields) => {
+                if (err) throw err
+                res.json({"code": "200", "msg": "Register Successfully"});
+            }
+        )
+    }
+    else {
+        res.json({"code": "200", "msg": "Register Successfully"});
+    }
 }) 
 
 module.exports = router 

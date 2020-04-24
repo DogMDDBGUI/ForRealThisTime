@@ -19,4 +19,20 @@ router.get('/:id', (req, res) => {
 })
 
 
+// get user by email
+router.get('/email/:email', (req, res) => {
+    let email = req.params.email;
+
+    connection.query(
+        `SELECT * FROM users WHERE email='${email}';`,
+        function (err, rows, fields) {
+            if(err) throw err
+            if (rows.length == 0) {
+                res.json({code: 204, msg: "Invalid email"});
+            }
+            res.end(JSON.stringify(rows[0]))
+        }
+    )
+})
+
 module.exports = router
