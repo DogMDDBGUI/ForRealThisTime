@@ -26,6 +26,41 @@ router.post('/', (req, res) => { // receive event data from the frontend
     );
 }) 
 
+router.get('/:id', (req, res) => {
+    let id = req.params.id;
+
+    connection.query(
+        `SELECT * from veterinarian \
+            WHERE user_id = '${id}';`,
+        (err, rows, fields) => {
+            if (err) throw err
+            if (rows.length) {
+                res.end(JSON.stringify(rows[0]));
+            }
+            else {
+                res.json({code: 204, msg: "invalid id"});
+            }
+        }
+    );
+});
+
+
+router.get('/', (req, res) => {
+    connection.query(
+        `SELECT * from veterinarian \
+            INNER JOIN users
+            ON veterinarian.user_id = users.id;`,
+        (err, rows, fields) => {
+            if (err) throw err
+            if (rows.length) {
+                res.end(JSON.stringify(rows));
+            }
+            else {
+                res.json({code: 204, msg: "invalid id"});
+            }
+        }
+    );
+});
 
 
 /*

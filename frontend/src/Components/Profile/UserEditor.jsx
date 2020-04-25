@@ -11,10 +11,19 @@ export class UserEditor extends React.Component {
   };
 
   submit() {
+    if (!this.state.first_name
+      ||!this.state.last_name
+      ||!this.state.zipcode
+      ||!this.state.imageURL
+      ) {
+      alert("Invalid information!");
+      return;
+    }
     this.api.updateUser(this.state)
       .then(
         setTimeout(() => this.setState({redirect: true}), 100)
-      );
+      )
+      .catch(e => alert(e));
   }
 
   render() {

@@ -41,6 +41,28 @@ export class ProductRepository {
     })
   }
 
+  getVet(id) {
+    return new Promise((resolve, reject) => {
+      axios.get(`${this.url}/api/vets/${id}`, this.config)
+           .then(x => resolve(x.data))
+           .catch(x => {
+              alert(x);
+              reject(x);
+          })
+    })
+  }
+
+  getVets(id) {
+    return new Promise((resolve, reject) => {
+      axios.get(`${this.url}/api/vets`, this.config)
+           .then(x => resolve(x.data))
+           .catch(x => {
+              alert(x);
+              reject(x);
+          })
+    })
+  }
+
   getUserByEmail(email) {
     return new Promise((resolve, reject) => {
       axios.get(`${this.url}/api/users/email/${email}`, this.config)

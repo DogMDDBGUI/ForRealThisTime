@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { NavBar } from '../HomePage';
 import { Vet } from '../../Models';
+import { ProductRepository } from '../../Api/productRepository'
 import './profile.css';
 
 
 export class VetProfile extends React.Component {
+  api = new ProductRepository();
 
   fullName() {
     return this.props.user.first_name + " " + this.props.user.last_name;
@@ -24,7 +26,7 @@ export class VetProfile extends React.Component {
             </h3>
             <span className="spacer"></span>
             <h3>
-              Rating: {this.props.user.ratings}
+              Rating: {this.state.ratings}
             </h3>
           </div>
           <div className="info">
@@ -53,7 +55,7 @@ export class VetProfile extends React.Component {
                 </tr>
                 <tr>
                   <th>Years of Experience </th>
-                  <td>{this.props.user.year_experience} year(s)</td>
+                  <td>{this.state.years_experience} year(s)</td>
                 </tr>
                 <tr>
                   <th>Email Contact</th>
@@ -61,7 +63,7 @@ export class VetProfile extends React.Component {
                 </tr>
                 <tr>
                   <th>Skills</th>
-                  <td>{this.props.user.skills}</td>
+                  <td>{this.state.skills}</td>
                 </tr>
               </table>
             </div>
@@ -69,5 +71,10 @@ export class VetProfile extends React.Component {
         </div>
       </>
     );
+  }
+
+  componentDidMount() {
+    this.api.getVet(this.props.user.id)
+        .then(vet => this.setState(vet));
   }
 }

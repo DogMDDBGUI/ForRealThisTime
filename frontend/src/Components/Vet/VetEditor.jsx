@@ -7,19 +7,26 @@ export class VetEditor extends React.Component {
   api = new ProductRepository();
 
   state = {
-    redirect: false,
+    code: 201,
   };
 
   submit() {
     this.api.updateUser(this.state)
       .then(
-        setTimeout(() => this.setState({redirect: true}), 100)
-      );
+        resp => {
+          (setTimeout(() => this.setState({code: resp.code}), 100))
+        }
+      )
+      .catch(e => alert(e));
   }
 
   render() {
-    if (this.state.redirect) {
+    if (this.state.code == 200) {
       return <Redirect to="/user" />
+    }
+    if (this.state.code == 204) {
+      alert("Invalid update");
+      this.setState({code: 201});
     }
     return(
       <>
@@ -103,6 +110,8 @@ export class VetEditor extends React.Component {
 
   componentDidMount() {
     this.api.getUser(localStorage.getItem('id'))
+      .then(user => this.setState(user));
+    this.api.getVet(localStorage.getItem('id'))
       .then(user => this.setState(user));
   }
 }

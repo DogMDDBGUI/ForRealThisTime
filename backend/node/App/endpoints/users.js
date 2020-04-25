@@ -48,7 +48,10 @@ router.put('/', (req, res) => {
          WHERE id = '${user.id}'
         `,
         (err, rows, fields) => {
-            if (err) throw err
+            if (err) {
+                res.json({code: 204, msg: "invalid update"});
+                return;
+            }
         }
     )
 
@@ -62,7 +65,10 @@ router.put('/', (req, res) => {
              WHERE user_id = '${user.id}'
             `,
             (err, rows, fields) => {
-                if (err) throw err
+                if (err) {
+                    res.json({code: 204, msg: "invalid update"});
+                    return;
+                }
                 res.json({"code": "200", "msg": "Update successfully"});
             }
         )   
