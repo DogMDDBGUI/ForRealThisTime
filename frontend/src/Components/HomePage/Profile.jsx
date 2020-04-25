@@ -26,7 +26,6 @@ export class Profile extends React.Component {
     this.api.getUser(id)
         .then(user => {
           this.setState(user);
-          this.setState({password: ''});
         })
   }
 } 

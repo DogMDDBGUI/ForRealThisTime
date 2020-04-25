@@ -7,7 +7,8 @@ router.get('/:id', (req, res) => {
     let id = req.params.id;
 
     connection.query(
-        `SELECT * FROM users WHERE id='${id}';`,
+        `SELECT id, email, first_name, last_name, role_id, zipcode, imageURL 
+        FROM users WHERE id='${id}';`,
         function (err, rows, fields) {
             if(err) throw err
             if (rows.length == 0) {
@@ -24,7 +25,8 @@ router.get('/email/:email', (req, res) => {
     let email = req.params.email;
 
     connection.query(
-        `SELECT * FROM users WHERE email='${email}';`,
+        `SELECT id, email, first_name, last_name, role_id, zipcode, imageURL  
+        FROM users WHERE email='${email}';`,
         function (err, rows, fields) {
             if(err) throw err
             if (rows.length == 0) {
@@ -76,6 +78,21 @@ router.put('/', (req, res) => {
     else {
         res.json({"code": "200", "msg": "Update successfully"});
     }
+})
+
+router.get('/dogs/:id', (req, res) => {
+    let id = req.params.id;
+
+    connection.query(
+        `SELECT dog.id, breed_id, owner_id, dog.name, age, gender, conditions, imageURL, breed.name as breed_name 
+        FROM dog 
+        INNER JOIN breed ON breed.id = dog.breed_id
+        WHERE owner_id = '${id}';`,
+        (err, rows, fields) => {
+            if(err) throw err
+            res.end(JSON.stringify(rows))
+        }
+    )
 })
 
 module.exports = router

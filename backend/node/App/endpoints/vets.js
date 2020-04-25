@@ -47,7 +47,8 @@ router.get('/:id', (req, res) => {
 
 router.get('/', (req, res) => {
     connection.query(
-        `SELECT * from veterinarian \
+        `SELECT id, years_experience, skills, ratings, email, first_name, last_name, role_id, zipcode, imageURL 
+            FROM veterinarian \
             INNER JOIN users
             ON veterinarian.user_id = users.id;`,
         (err, rows, fields) => {

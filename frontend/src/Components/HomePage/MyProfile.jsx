@@ -1,8 +1,5 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { VetProfile } from '../Vet/Profile'
-import { UserProfile } from '../Profile/UserProfile'
-import { ProductRepository } from '../../Api/productRepository'
 
 
 export function MyProfile(props) {

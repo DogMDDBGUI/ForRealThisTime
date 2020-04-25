@@ -42,9 +42,9 @@ export class VetProfile extends React.Component {
                 </Link>
               }
               {localStorage.getItem('role_id') == 2 && 
-                <button type="button" className="btn btn-success btn-block mt-2">
+                <Link to={"/book/" + this.state.user_id} className="btn btn-success btn-block mt-2">
                   Book Appointments
-                </button>
+                </Link>
               }
             </div>
             <div className="description">

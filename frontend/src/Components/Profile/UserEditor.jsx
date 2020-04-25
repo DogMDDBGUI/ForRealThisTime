@@ -43,7 +43,7 @@ export class UserEditor extends React.Component {
           <div className="container d-block pl-5 pr-5">    
             <form>
               <div className="form-group">
-                <label for="firstName" >First Name: </label>
+                <label htmlFor="firstName" >First Name: </label>
                 <input type="text" 
                        id="firstName" 
                        className="form-control"
@@ -51,7 +51,7 @@ export class UserEditor extends React.Component {
                        onChange={e => this.setState({first_name: e.target.value})}/>
               </div>
               <div className="form-group">
-                <label for="lastName" >Last Name: </label>
+                <label htmlFor="lastName" >Last Name: </label>
                 <input type="text" 
                        id="lastName" 
                        className="form-control"
@@ -59,7 +59,7 @@ export class UserEditor extends React.Component {
                        onChange={e => this.setState({last_name: e.target.value})}/>
               </div>
               <div className="form-group">
-                <label for="zipcode" >Zipcode: </label>
+                <label htmlFor="zipcode" >Zipcode: </label>
                 <input type="number" 
                        id="zipcode" 
                        className="form-control"
@@ -67,7 +67,7 @@ export class UserEditor extends React.Component {
                        onChange={e => this.setState({zipcode: e.target.value})}/>
               </div>
               <div className="form-group">
-                <label for="imageURL">Image URL: </label>
+                <label htmlFor="imageURL">Image URL: </label>
                 <input type="text" 
                        id="imageURL" 
                        className="form-control"

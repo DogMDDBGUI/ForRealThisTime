@@ -1,6 +1,4 @@
 import React from "react";
-import { Link, NavLink } from 'react-router-dom'
-import { User } from '../../Models'
 import { ProductRepository } from '../../Api/productRepository'
 
 export class Register extends React.Component{

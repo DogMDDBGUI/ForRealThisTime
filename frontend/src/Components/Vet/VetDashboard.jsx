@@ -3,8 +3,6 @@ import { ProductRepository } from '../../Api/productRepository'
 import { MDBDataTable } from 'mdbreact';
 import { Link } from 'react-router-dom';
 import { NavBar } from '../HomePage';
-import { Vet } from '../../Models';
-import './dashboard.css';
 
 
 export class VetDashboard extends React.Component {
@@ -84,6 +82,7 @@ export class VetDashboard extends React.Component {
       };
 
       rows.push(row);
+      return true;
     });
     this.setState({tableData: {columns: cols, rows: rows}});
   }

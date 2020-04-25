@@ -41,7 +41,7 @@ export class VetEditor extends React.Component {
           <div className="container d-block pl-5 pr-5">    
             <form>
               <div className="form-group">
-                <label for="firstName" >First Name: </label>
+                <label htmlFor="firstName" >First Name: </label>
                 <input type="text" 
                        id="firstName" 
                        className="form-control"
@@ -49,7 +49,7 @@ export class VetEditor extends React.Component {
                        onChange={e => this.setState({first_name: e.target.value})}/>
               </div>
               <div className="form-group">
-                <label for="lastName" >Last Name: </label>
+                <label htmlFor="lastName" >Last Name: </label>
                 <input type="text" 
                        id="lastName" 
                        className="form-control"
@@ -57,7 +57,7 @@ export class VetEditor extends React.Component {
                        onChange={e => this.setState({last_name: e.target.value})}/>
               </div>
               <div className="form-group">
-                <label for="zipcode" >Zipcode: </label>
+                <label htmlFor="zipcode" >Zipcode: </label>
                 <input type="number" 
                        id="zipcode" 
                        className="form-control"
@@ -65,7 +65,7 @@ export class VetEditor extends React.Component {
                        onChange={e => this.setState({zipcode: e.target.value})}/>
               </div>
               <div className="form-group">
-                <label for="years_experience" >Years of Experience: </label>
+                <label htmlFor="years_experience" >Years of Experience: </label>
                 <input type="number" 
                        id="years_experience" 
                        className="form-control"
@@ -73,7 +73,7 @@ export class VetEditor extends React.Component {
                        onChange={e => this.setState({years_experience: e.target.value})}/>
               </div>
               <div className="form-group">
-                <label for="ratings" >Ratings: </label>
+                <label htmlFor="ratings" >Ratings: </label>
                 <input type="number" 
                        id="ratings" 
                        className="form-control"
@@ -81,7 +81,7 @@ export class VetEditor extends React.Component {
                        onChange={e => this.setState({ratings: e.target.value})}/>
               </div>
               <div className="form-group">
-                <label for="imageURL">Image URL: </label>
+                <label htmlFor="imageURL">Image URL: </label>
                 <input type="text" 
                        id="imageURL" 
                        className="form-control"
@@ -89,7 +89,7 @@ export class VetEditor extends React.Component {
                        onChange={e => this.setState({imageURL: e.target.value})}/>
               </div>
               <div className="form-group">
-                <label for="skills">Skills: </label>
+                <label htmlFor="skills">Skills: </label>
                 <input type="text" 
                        id="skills" 
                        className="form-control"
