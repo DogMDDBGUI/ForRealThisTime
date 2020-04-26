@@ -37,7 +37,7 @@ INSERT INTO roles (id, role_name) VALUES
 DROP TABLE IF EXISTS `dog`;
 
 CREATE TABLE `dog` (
-  `id` int NOT NULL,
+  `id` int NOT NULL auto_increment,
   `breed_id`int,
   `owner_id` int,
   `name` varchar(50),

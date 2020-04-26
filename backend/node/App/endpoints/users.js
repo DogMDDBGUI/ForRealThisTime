@@ -47,7 +47,7 @@ router.put('/', (req, res) => {
              last_name = '${user.last_name}',
              zipcode = '${user.zipcode}',
              imageURL = '${user.imageURL}'
-         WHERE id = '${user.id}'
+         WHERE id = '${user.id}';
         `,
         (err, rows, fields) => {
             if (err) {
@@ -64,7 +64,7 @@ router.put('/', (req, res) => {
              SET years_experience = '${user.years_experience}',
                  skills = '${user.skills}',
                  ratings = '${user.ratings}'
-             WHERE user_id = '${user.id}'
+             WHERE user_id = '${user.id}';
             `,
             (err, rows, fields) => {
                 if (err) {

@@ -140,5 +140,62 @@ export class ProductRepository {
               reject(x);
           })
     })
-  } 
+  }
+
+  // get dog by id
+  getDog(id) {
+    return new Promise((resolve, reject) => {
+      axios.get(`${this.url}/api/dogs/${id}`, this.config)
+           .then(x => resolve(x.data))
+           .catch(x => {
+              alert(x);
+              reject(x);
+          })
+    })
+  }
+
+  // get all breeds
+  getBreeds() {
+    return new Promise((resolve, reject) => {
+      axios.get(`${this.url}/api/dogs/breeds`, this.config)
+           .then(x => resolve(x.data))
+           .catch(x => {
+              alert(x);
+              reject(x);
+          })
+    })  
+  }
+
+  updateDog(form) {
+    return new Promise((resolve, reject) => {
+      axios.put(`${this.url}/api/dogs`, form, this.config)
+           .then(x => resolve(x.data))
+           .catch(x => {
+              alert(x);
+              reject(x);
+          })
+    })
+  }
+
+  addDog(newDog) {
+    return new Promise((resolve, reject) => {
+      axios.post(`${this.url}/api/dogs`, newDog, this.config)
+           .then(x => resolve(x.data))
+           .catch(x => {
+              alert(x);
+              reject(x);
+          })
+    }) 
+  }
+
+  deleteDog(id) {
+    return new Promise((resolve, reject) => {
+      axios.delete(`${this.url}/api/dogs/${id}`, this.config)
+           .then(x => resolve(x.data))
+           .catch(x => {
+              alert(x);
+              reject(x);
+          })
+    })  
+  }
 }

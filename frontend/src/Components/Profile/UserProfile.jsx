@@ -30,9 +30,10 @@ export class UserProfile extends React.Component {
                   Edit profile
                 </Link>
               }
-              <button type="button" className="btn btn-info btn-block mt-2">
-                Add a Dog
-              </button>
+              <Link className="btn btn-info btn-block mt-2" 
+                    to={`/dogs/${this.props.user.id}`}>
+                View my dogs
+              </Link>
             </div>
             <div className="description">
               <table className="table table-collapse">
