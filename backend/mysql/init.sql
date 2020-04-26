@@ -104,7 +104,7 @@ INSERT INTO veterinarian (user_id, years_experience, area_id, skills, ratings) V
 DROP TABLE IF EXISTS `appointment`;
 
 CREATE TABLE `appointment` (
- `id` int NOT NULL,
+ `id` int NOT NULL auto_increment,
   time time NOT NULL,
   date date NOT NULL,
   `dog_id` int NOT NULL,

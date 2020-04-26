@@ -20,14 +20,9 @@ export class NavBar extends React.Component {
         <div className="collapse navbar-collapse" id="navbar-items">
           <ul className="navbar-nav">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/myprofile" activeClassName="active">
+                  <NavLink className="nav-link" to="/user" activeClassName="active">
                     My Profile
                   </NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink className="nav-link" to="/vet/profile/:id" activeClassName="active">
-                      Vet Profile
-                    </NavLink>
                 </li>
                 <li className="nav-item">
                     <NavLink className="nav-link" to="/vets" activeClassName="active">

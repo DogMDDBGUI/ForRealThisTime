@@ -2,7 +2,6 @@ const connection = require('../model/dbConn') // connected db
 const express = require('express')
 const router = express.Router() // express route handler 
 
-
 router.post('/dogs', (req, res) => { // receive event data from the frontend
     let newDog = req.body;
     console.log(newDog);
@@ -30,7 +29,7 @@ router.post('/dogs', (req, res) => { // receive event data from the frontend
             res.json({"code": "200", "msg": "Register Successfully"});
         }
     );
-}) 
+})
 
 //starting puts
 

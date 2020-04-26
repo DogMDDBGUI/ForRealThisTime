@@ -1,49 +1,14 @@
 import React from 'react';
+import { ProductRepository } from '../../Api/productRepository'
 import { MDBDataTable } from 'mdbreact';
 import { Link } from 'react-router-dom';
 import { NavBar } from '../HomePage';
-import { Vet } from '../../Models';
-import './dashboard.css';
 
 
 export class VetDashboard extends React.Component {
-  vets = [
-    new Vet(
-      1,
-      'Phuoc Dinh',
-      'Le',
-      'lephuocdinh99@gmail.com',
-      3,
-      1,
-      4.5,
-      []
-    ),
-    new Vet(
-      2,
-      'Nicholas',
-      'Lu',
-      'nicholasl@smu.edu',
-      15,
-      10,
-      5,
-      []
-    ),
-    new Vet(
-      3,
-      'Best',
-      'Vet',
-      'bestvet@smu.edu',
-      1,
-      4,
-      0.5,
-      []
-    ),  
-  ];
-
-  
-
+  api = new ProductRepository();
   state = {
-    vets: this.vets,
+    vets: [],
     tableData: {
       columns: [
         {
@@ -62,7 +27,7 @@ export class VetDashboard extends React.Component {
           sort: 'asc',
         },
         {
-          label: 'Area',
+          label: 'Zipcode',
           field: 'areaId',
           sort: 'asc',
         },
@@ -86,19 +51,28 @@ export class VetDashboard extends React.Component {
       <>
         <NavBar />
         <div id="content">
-          <MDBDataTable collapsed striped hover data={this.state.tableData} />
+          <MDBDataTable striped hover data={this.state.tableData} />
         </div>
       </>
     )
   }
 
+  componentDidMount() {
+    this.api.getVets()
+      .then(data => {
+        this.setState({vets: data});
+        this.createRows();    
+      });
+  }
   createRows() {
+    let cols = this.state.tableData.columns;
+    let rows = this.state.tableData.rows;
     this.state.vets.map(vet => {
-      let linkTo = '/vet/profile/' + vet.id;
+      let linkTo = '/user/' + vet.id;
       let row = {
         firstName: vet.first_name,
         lastName: vet.last_name,
-        yearExp: vet.year_exp,
+        yearExp: vet.years_experience,
         areaId: vet.zipcode,
         ratings: vet.ratings,
         profile: <Link className='btn btn-info btn-sm' 
@@ -107,11 +81,10 @@ export class VetDashboard extends React.Component {
                  </Link>
       };
 
-      this.state.tableData.rows.push(row);
-    })
+      rows.push(row);
+      return true;
+    });
+    this.setState({tableData: {columns: cols, rows: rows}});
   }
 
-  componentDidMount() {
-    this.createRows();
-  }
 }

@@ -2,12 +2,24 @@ const connection = require('../model/dbConn') // connected db
 const express = require('express')
 const router = express.Router() // express route handler 
 
+router.get('/:id', (req, res) => {
+    let id = req.params.id;
+    connection.query(
+        `SELECT appointment.id, time, date, name AS dog_name, first_name AS vet_first_name, last_name AS vet_last_name, owner_id, status, vet_id 
+        FROM ((appointment 
+        INNER JOIN users ON appointment.vet_id = users.id) 
+        INNER JOIN dog ON appointment.dog_id = dog.id)
+        WHERE vet_id = ${id} or owner_id = ${id};`,
+        (err, rows, fields) => {
+            if (err) throw err
+            res.end(JSON.stringify(rows));
+        }
+    );
+})
 
-router.post('/appointment', (req, res) => { // receive event data from the frontend
+router.post('/', (req, res) => { // receive event data from the frontend
     let newAppt = req.body;
-    console.log(newAppt);
-    if (!newAppt.id || 
-        !newAppt.time || 
+    if (!newAppt.time || 
         !newAppt.date || 
         !newAppt.dog_id || 
         !newAppt.status || 
@@ -20,8 +32,8 @@ router.post('/appointment', (req, res) => { // receive event data from the front
     }
 
     connection.query(
-        `INSERT INTO appointment (id, time, date, dog_id, status, vet_id)\
-                        VALUES ('${newAppt.id}', '${newAppt.time}', '${newVet.date}', '${newAppt.dog_id}', '${newAppt.status}', '${newAppt.vet_id}');`,
+        `INSERT INTO appointment (time, date, dog_id, status, vet_id)\
+                        VALUES ('${newAppt.time}', '${newAppt.date}', '${newAppt.dog_id}', '${newAppt.status}', '${newAppt.vet_id}');`,
         (err, rows, fields) => {
             if (err) throw err
             res.json({"code": "200", "msg": "Register Successfully"});
@@ -31,17 +43,18 @@ router.post('/appointment', (req, res) => { // receive event data from the front
 
 //adding puts
 
-router.put('/appointment/status:id', (req, res) => {
+router.put('/status/:id', (req, res) => {
 
-    let id = req.param('id');
-    var status = req.param('status');
+    let id = req.params.id;
+    let status  = req.body.status;
 
     connection.query(
-        `UPDATE appointment (status)\
-                        SET ('${id.status}');`,
+        `UPDATE appointment\
+            SET status = '${status}'\
+            WHERE id = '${id}';`,
         (err, rows, fields) => {
             if (err) throw err
-            res.json({"code": "200", "msg": "Register Successfully"});
+            res.json({"code": "200", "msg": "Update Successfully"});
         }
     );
 });

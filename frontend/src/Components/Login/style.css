@@ -13,13 +13,13 @@
     flex-direction: column;
 }
 
-.form{
+.form-login{
     margin-top: 02em;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-    .form-group{
+    .form-group-login{
         display:flex;
         flex-direction: column;
         padding:3em;
@@ -29,35 +29,35 @@
         background-color: lightgray;   
 
     }
-    label{
-        font-size: 20px;
-    }
+.label-login {
+    font-size: 20px;
+}
 
-    input{
-        margin-top:.6em;
-        min-width:18em;
-        height: 40px;
-        padding: 0px 1em;
-        font-size: 16px;
-        background-color: darkgray;
-        border:0;
-        border-radius: .3em;
-        margin-bottom:31px;
-        transition:all 250ms ease-in-out;
-    }
-    Link{
-        margin-top:.6em;
-        min-width:18em;
-        height: 40px;
-        padding: 0px 1em;
-        font-size: 16px;
-        background-color: #3498db;
-        border:0;
-        border-radius: .3em;
-        margin-bottom:31px;
-        transition:all 250ms ease-in-out;
-    }
-button:hover{
+.input-login {
+    margin-top:.6em;
+    min-width:18em;
+    height: 40px;
+    padding: 0px 1em;
+    font-size: 16px;
+    background-color: darkgray;
+    border:0;
+    border-radius: .3em;
+    margin-bottom:31px;
+    transition:all 250ms ease-in-out;
+}
+.link-login{
+    margin-top:.6em;
+    min-width:18em;
+    height: 40px;
+    padding: 0px 1em;
+    font-size: 16px;
+    background-color: #3498db;
+    border:0;
+    border-radius: .3em;
+    margin-bottom:31px;
+    transition:all 250ms ease-in-out;
+}
+.button-login:hover{
     background-color: #2386c8;
 }
 .footer {
