@@ -66,7 +66,6 @@ export class DogTable extends React.Component {
     }
     this.api.addDog(newDog)
       .then(resp => {
-        alert(resp.msg);
         window.location.reload(false);
       })
   }

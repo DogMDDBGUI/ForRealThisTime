@@ -18,7 +18,13 @@ export class Home extends React.Component {
       <>
         <NavBar/>
         <div className="container">
-          <h3>Welcome back, {this.state.name}!</h3>    
+          <h3>Welcome back, {this.state.name}!</h3>
+        </div>
+        <div className="container">
+          <img src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2009/01/12215922/dog-at-vet-800x534.jpg" 
+               alt="homepage"
+               width="90%"/>
+
         </div>
       </>
     );

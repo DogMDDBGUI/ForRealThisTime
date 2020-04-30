@@ -46,18 +46,6 @@ export class UserProfile extends React.Component {
                   <td>{this.props.user.zipcode}</td>
                 </tr>
               </table>
-                <h3>Your Pets</h3>
-              <table className="table table-collapse">
-                <tr>
-                    {/* <th>{this.props.user.Dogs[0].Name}</th> */}
-                    {/* <td>{this.props.user.Dogs[0].Age} year old {this.props.user.Dogs[0].Breed}</td> */}
-                </tr>
-                <tr>
-                    {/* <th>{this.props.user.Dogs[1].Name}</th> */}
-                    {/* <td>{this.props.user.Dogs[1].Age} year old {this.props.user.Dogs[1].Breed}</td> */}
-                </tr>
-              </table>
-              
             </div>
           </div>
         </div>

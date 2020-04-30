@@ -14,32 +14,32 @@ export class NavBar extends React.Component {
         </button>
 
         <Link to="/home" className="navbar-brand mr-0 mr-md-2">
-          <img src={process.env.PUBLIC_URL + '/dog2.png'} width="30" height="30" className="d-inline-block align-top" alt=""/>
+          <img src={process.env.PUBLIC_URL + '/dogmd.png'} width="30" height="30" className="d-inline-block align-top mr-1" alt=""/>
           Dog MD
         </Link>
         <div className="collapse navbar-collapse" id="navbar-items">
           <ul className="navbar-nav">
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/user" activeClassName="active">
-                    My Profile
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink className="nav-link" to="/vets" activeClassName="active">
-                      Vet Dashboard
-                    </NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink className="nav-link" to="/appointments" activeClassName="active">
-                      View Appointments
-                    </NavLink>
-                </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/user" activeClassName="active">
+                My Profile
+              </NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink className="nav-link" to="/vets" activeClassName="active">
+                  Vet Dashboard
+                </NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink className="nav-link" to="/appointments" activeClassName="active">
+                  View Appointments
+                </NavLink>
+            </li>
 
-                <li className="nav-item">
-                    <NavLink className="nav-link" exact to="/" activeClassName="active" onClick={this.logOut}>
-                      Logout
-                    </NavLink>
-                </li>   
+            <li className="nav-item">
+                <NavLink className="nav-link" exact to="/" activeClassName="active" onClick={this.logOut}>
+                  Logout
+                </NavLink>
+            </li>   
                             
           </ul>          
         </div>
